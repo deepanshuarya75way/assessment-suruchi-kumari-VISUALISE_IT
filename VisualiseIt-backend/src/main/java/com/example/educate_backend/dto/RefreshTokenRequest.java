@@ -5,16 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * DTO for login response containing JWT token and user details.
+ * DTO for user login request.
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginResponse {
+public class RefreshTokenRequest {
 
-    private String token;
     private String refreshtoken;
-    private String name;
-    private String email;
-    private String role;
+    
 }

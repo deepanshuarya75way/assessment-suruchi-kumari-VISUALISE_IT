@@ -99,4 +99,16 @@ public class AuthController {
         log.debug("Health check endpoint called");
         return new ResponseEntity<>("Auth service is up and running", HttpStatus.OK);
     }
+
+    @PostMapping("/refresh-token")
+    public ResponseEntity<tokenRefreshResponse> refreshtoken(@RequestBody RefreshTokenRequest request){
+        log.info("received refresh token");
+        try{
+            tokenRefreshResponse response = authService.refreshToken(request);
+            return new ResponseEntity<>(response,HttpStatus.ok);
+        }catch(AuthenticationException e){
+            log.warn("refresh token failed: {}",e.getMessage());
+            return new ResponseEntity<>(null,HttpStatus.UNAUTHORIZED);
+        }
+    }
 }

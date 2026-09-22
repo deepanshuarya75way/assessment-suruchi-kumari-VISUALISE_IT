@@ -155,6 +155,7 @@ public CorsConfigurationSource corsConfigurationSource() {
 
                         // Health check endpoint
                         .requestMatchers("/actuator/health").permitAll()
+                        .requestMatchers("/api/auth/refresh-token").permitAll()
 
                         // Swagger/API documentation (if needed)
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()

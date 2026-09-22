@@ -9,9 +9,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "chapter_progress", uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "chapter_id"}))
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+
+c
 public class ChapterProgress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

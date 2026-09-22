@@ -109,15 +109,20 @@ public class AuthService {
 
         // Generate JWT token
         String token = jwtUtil.generateToken(user.getEmail(), user.getRole().toString());
+        RefreshToken refreshtoken = refreshTokenService.createRefreshToken(user);
         log.info("JWT token generated successfully for user: {}", user.getEmail());
 
         // Build response
         return new LoginResponse(
                 token,
+                refreshtoken.getToken();
                 user.getName(),
                 user.getEmail(),
                 user.getRole().toString()
         );
+    }
+    public tokenRefreshResponse refreshtoken(RefreshTokenRequest request){
+        return new tokenRefreshResponse(new AccessToken,storedToken.getToken());
     }
 
     /**
